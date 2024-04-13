@@ -1,5 +1,6 @@
 package fr.army.fluix.chat;
 
+import fr.army.fluix.command.FluixCommand;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
@@ -11,22 +12,22 @@ public class FluixChat {
     private final List<String> aliases;
     private final String prefix;
     private final String format;
-    private final String write_permission;
-    private final String read_permission;
+    private final String writePermission;
+    private final String readPermission;
 
     private FluixChat(
             @NotNull String command,
             @NotNull List<String> aliases,
             @NotNull String prefix,
             @NotNull String format,
-            @NotNull String write_permission,
-            @NotNull String read_permission) {
+            @NotNull String WritePermission,
+            @NotNull String readPermission) {
         this.command = Objects.requireNonNull(command, "command");
         this.aliases = Objects.requireNonNull(aliases, "aliases");
         this.prefix = Objects.requireNonNull(prefix, "prefix");
         this.format = Objects.requireNonNull(format, "format");
-        this.write_permission = Objects.requireNonNull(write_permission, "write_permission");
-        this.read_permission = Objects.requireNonNull(read_permission, "read_permission");
+        this.writePermission = Objects.requireNonNull(WritePermission, "write_permission");
+        this.readPermission = Objects.requireNonNull(readPermission, "read_permission");
     }
 
     public String getCommand() {
@@ -45,12 +46,16 @@ public class FluixChat {
         return format;
     }
 
-    public String getWrite_permission() {
-        return write_permission;
+    public String getWritePermission() {
+        return writePermission;
     }
 
-    public String getRead_permission() {
-        return read_permission;
+    public String getReadPermission() {
+        return readPermission;
+    }
+
+    public FluixCommand initCommand() {
+        return new FluixCommand(this);
     }
 
 
@@ -59,8 +64,8 @@ public class FluixChat {
         private List<String> aliases;
         private String prefix;
         private String format;
-        private String write_permission;
-        private String read_permission;
+        private String writePermission;
+        private String readPermission;
 
         public Builder setCommand(@NotNull String command) {
             this.command = command;
@@ -82,18 +87,18 @@ public class FluixChat {
             return this;
         }
 
-        public Builder setWritePermission(@NotNull String write_permission) {
-            this.write_permission = write_permission;
+        public Builder setWritePermission(@NotNull String writePermission) {
+            this.writePermission = writePermission;
             return this;
         }
 
-        public Builder setReadPermission(@NotNull String read_permission) {
-            this.read_permission = read_permission;
+        public Builder setReadPermission(@NotNull String readPermission) {
+            this.readPermission = readPermission;
             return this;
         }
 
         public FluixChat build() {
-            return new FluixChat(command, aliases, prefix, format, write_permission, read_permission);
+            return new FluixChat(command, aliases, prefix, format, writePermission, readPermission);
         }
     }
 }

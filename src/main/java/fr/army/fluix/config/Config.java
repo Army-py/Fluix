@@ -27,6 +27,7 @@ public class Config {
                                 key -> key,
                                 key -> new FluixChat.Builder()
                                         .setCommand(chatSection.getString(key + ".command"))
+                                        .setAliases(chatSection.getStringList(key + ".aliases"))
                                         .setPrefix(chatSection.getString(key + ".prefix"))
                                         .setFormat(chatSection.getString(key + ".format"))
                                         .setWritePermission(chatSection.getString(key + ".permission.write"))
