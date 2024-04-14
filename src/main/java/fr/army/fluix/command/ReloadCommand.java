@@ -23,6 +23,6 @@ public class ReloadCommand extends Command {
         }
 
         Fluix.getPlugin().load(true);
-        player.sendMessage(new TextComponent("§aReloaded!"));
+        player.sendMessage(new TextComponent(Messages.RELOADED.getMessage()));
     }
 }

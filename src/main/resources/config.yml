@@ -1,7 +1,19 @@
 
+# Default available language :
+# en_uk - English (United Kingdom)
+# fr_fr - French (France)
 language: "en_uk"
 
 chat:
+#  anyname:
+#    command: "your_command"
+#    aliases:
+#      - "your_alias"
+#    prefix: "§8[§6§lA command§8] "
+#    format: "{PREFIX} §7{PLAYER} §8» §7{MESSAGE}"
+#    permission:
+#      write: "fluix.chat.your_command.write"
+#      read: "fluix.chat.your_command.read"
   default:
     command: "default"
     aliases:

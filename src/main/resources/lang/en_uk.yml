@@ -5,5 +5,5 @@
 
 FLUIX_CHAT_USAGE: "§cUsage: /{CHAT_COMMAND} <message>"
 NO_PERMISSION: "§cYou do not have permission to use this command."
-
+RELOADED: "§aConfiguration reloaded."
 

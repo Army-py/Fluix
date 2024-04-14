@@ -10,6 +10,7 @@ public enum Messages {
 
     FLUIX_CHAT_USAGE,
     NO_PERMISSION,
+    RELOADED
     ;
 
     public String getMessage() {
