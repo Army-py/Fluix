@@ -1,12 +1,10 @@
 package fr.army.fluix;
 
-import fr.army.fluix.command.FluixCommandManager;
+import fr.army.fluix.command.CommandManager;
 import fr.army.fluix.config.Config;
 import fr.army.fluix.config.ConfigLoader;
 import net.md_5.bungee.api.plugin.Plugin;
 import net.md_5.bungee.config.Configuration;
-
-import java.io.IOException;
 
 public final class Fluix extends Plugin {
 
@@ -15,7 +13,7 @@ public final class Fluix extends Plugin {
     private ConfigLoader configLoader;
     private Config config;
     private Configuration languageConfig;
-    private FluixCommandManager commandManager;
+    private CommandManager commandManager;
 
     @Override
     public void onEnable() {
@@ -51,7 +49,7 @@ public final class Fluix extends Plugin {
         return languageConfig;
     }
 
-    public FluixCommandManager getCommandManager() {
+    public CommandManager getCommandManager() {
         return commandManager;
     }
 
@@ -77,7 +75,7 @@ public final class Fluix extends Plugin {
         if (isReload)
             commandManager.reloadCommands();
         else {
-            commandManager = new FluixCommandManager(this);
+            commandManager = new CommandManager(this);
             commandManager.registerCommands();
         }
     }

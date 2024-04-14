@@ -4,11 +4,11 @@ import fr.army.fluix.Fluix;
 import fr.army.fluix.chat.FluixChat;
 import fr.army.fluix.config.Config;
 
-public class FluixCommandManager {
+public class CommandManager {
 
     private final Fluix fluix;
 
-    public FluixCommandManager(Fluix fluix) {
+    public CommandManager(Fluix fluix) {
         this.fluix = fluix;
     }
 
