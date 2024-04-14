@@ -1,6 +1,6 @@
 # Fluix
 
-A simple plugin that lets you create as many private chats as you like
+A simple BungeeCord plugin that lets you create as many private chats as you like
 
 ## Commands
 
