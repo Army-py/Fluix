@@ -13,16 +13,16 @@ A simple BungeeCord plugin that lets you create as many private chats as you lik
 ```yaml
 
 # Default available language :
-# en_uk - English (United Kingdom)
+# en_us - English (United Kingdom)
 # fr_fr - French (France)
-language: "en_uk"
+language: "en_us"
 
 chat:
 #  anyname:
 #    command: "your_command"
 #    aliases:
 #      - "your_alias"
-#    prefix: "§8[§6§lA command§8] "
+#    prefix: "§8[§6§lYour Chat Name§8] "
 #    format: "{PREFIX} §7{PLAYER} §8» §7{MESSAGE}"
 #    permission:
 #      write: "fluix.chat.your_command.write"
