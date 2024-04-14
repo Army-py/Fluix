@@ -2,3 +2,4 @@ name: Fluix
 version: '${project.version}'
 main: fr.army.fluix.Fluix
 author: Army_
+description: "A simple plugin that lets you create as many private chats as you like"
