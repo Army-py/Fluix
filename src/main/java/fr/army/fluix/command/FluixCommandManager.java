@@ -13,6 +13,7 @@ public class FluixCommandManager {
     }
 
     public void registerCommands() {
+        fluix.getProxy().getPluginManager().registerCommand(fluix, new ReloadCommand("fluixreload", "fluix.reload", "fluixrl"));
         for (FluixChat chat : Config.chats.values()) {
             fluix.getProxy().getPluginManager().registerCommand(fluix, chat.initCommand());
             fluix.getLogger().info("Registered command: " + chat.getCommand());
