@@ -1,12 +1,13 @@
 
+language: "en_uk"
 
 chat:
   default:
     command: "default"
-    alias:
+    aliases:
       - "d"
-    prefix: "&8[&6&lDefault&8] "
-    format: "{prefix} &7{player} &8» &7{message}"
+    prefix: "§8[§6§lDefault§8] "
+    format: "{PREFIX} §7{PLAYER} §8» §7{MESSAGE}"
     permission:
       write: "fluix.chat.default.write"
       read: "fluix.chat.default.read"
@@ -15,7 +16,7 @@ chat:
 # Placeholders :
 # Placeholders are used to replace the value with the actual value.
 # It is only available in the format section.
-# {player} - Player name
-# {message} - Message to be sent
-# {prefix} - Prefix of the chat
-# {server} - Server name where the message is sent
+# {PLAYER} - Player name
+# {MESSAGE} - Message to be sent
+# {PREFIX} - Prefix of the chat
+# {SERVER} - Server name where the message is sent

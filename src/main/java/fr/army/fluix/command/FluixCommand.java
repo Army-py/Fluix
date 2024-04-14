@@ -1,11 +1,16 @@
 package fr.army.fluix.command;
 
 import fr.army.fluix.chat.FluixChat;
+import fr.army.fluix.config.message.Messages;
+import fr.army.fluix.config.message.Placeholders;
+import fr.army.fluix.config.message.PlaceholdersUtils;
 import net.md_5.bungee.api.CommandSender;
 import net.md_5.bungee.api.chat.TextComponent;
 import net.md_5.bungee.api.connection.ProxiedPlayer;
 import net.md_5.bungee.api.plugin.Command;
 import org.jetbrains.annotations.NotNull;
+
+import java.util.Map;
 
 public class FluixCommand extends Command {
 
@@ -25,25 +30,33 @@ public class FluixCommand extends Command {
         if (!(commandSender instanceof ProxiedPlayer player)) return;
 
         if (!player.hasPermission(chat.getWritePermission())) {
-            player.sendMessage(new TextComponent("§cYou do not have permission to use this command."));
+            player.sendMessage(new TextComponent(Messages.NO_PERMISSION.getMessage()));
             return;
         }
 
         if (strings.length == 0) {
-            player.sendMessage(new TextComponent("§cUsage: /" + chat.getCommand() + " <message>"));
+            final Map<Placeholders, String> replacements = Map.of(
+                    Placeholders.CHAT_COMMAND, chat.getCommand()
+            );
+            player.sendMessage(new TextComponent(Messages.FLUIX_CHAT_USAGE.getMessage(replacements)));
             return;
         }
 
-        StringBuilder message = new StringBuilder();
+        final StringBuilder message = new StringBuilder();
         for (String string : strings) {
             message.append(string).append(" ");
         }
 
-        player.sendMessage(new TextComponent(chat.getPrefix() + " " + message));
+        final Map<Placeholders, String> replacements = Map.of(
+                Placeholders.PREFIX, chat.getPrefix(),
+                Placeholders.PLAYER, player.getName(),
+                Placeholders.SERVER, player.getServer().getInfo().getName(),
+                Placeholders.MESSAGE, message.toString()
+        );
 
         for (ProxiedPlayer proxiedPlayer : player.getServer().getInfo().getPlayers()) {
             if (proxiedPlayer.hasPermission(chat.getReadPermission())) {
-                proxiedPlayer.sendMessage(new TextComponent(chat.getPrefix() + " " + message));
+                proxiedPlayer.sendMessage(new TextComponent(PlaceholdersUtils.replace(chat.getFormat(), replacements)));
             }
         }
     }

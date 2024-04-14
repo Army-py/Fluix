@@ -21,17 +21,28 @@ public class ConfigLoader {
 
     public Configuration initFile(@NotNull String fileName) throws IOException {
         if (!plugin.getDataFolder().exists()) {
-           plugin.getLogger().info("Created config folder: " + plugin.getDataFolder().mkdir());
+           plugin.getDataFolder().mkdir();
         }
 
-        File configFile = new File(plugin.getDataFolder(), fileName);
+        if (fileName.contains("/")) {
+            createFolders(fileName.substring(0, fileName.lastIndexOf("/")));
+        }
+
+        final File configFile = new File(plugin.getDataFolder(), fileName);
 
         if (!configFile.exists()) {
-            FileOutputStream outputStream = new FileOutputStream(configFile);
-            InputStream in = plugin.getResourceAsStream(fileName);
+            final FileOutputStream outputStream = new FileOutputStream(configFile);
+            final InputStream in = plugin.getResourceAsStream(fileName);
             in.transferTo(outputStream);
         }
         return ConfigurationProvider.getProvider(YamlConfiguration.class).load(new File(plugin.getDataFolder(), fileName));
+    }
+
+    private void createFolders(@NotNull String path) {
+        final File file = new File(plugin.getDataFolder(), path);
+        if (!file.exists()) {
+            file.mkdir();
+        }
     }
 
 }

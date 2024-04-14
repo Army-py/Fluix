@@ -1,0 +1,9 @@
+
+
+# List of available placeholders
+# {CHAT_COMMAND} - Chat command used name
+
+FLUIX_CHAT_USAGE: "§cUsage: /{CHAT_COMMAND} <message>"
+NO_PERMISSION: "§cYou do not have permission to use this command."
+
+

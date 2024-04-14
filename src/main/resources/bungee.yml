@@ -1,3 +1,4 @@
 name: Fluix
 version: '${project.version}'
 main: fr.army.fluix.Fluix
+author: Army_

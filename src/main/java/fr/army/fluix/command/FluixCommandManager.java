@@ -15,6 +15,7 @@ public class FluixCommandManager {
     public void registerCommands() {
         for (FluixChat chat : Config.chats.values()) {
             fluix.getProxy().getPluginManager().registerCommand(fluix, chat.initCommand());
+            fluix.getLogger().info("Registered command: " + chat.getCommand());
         }
     }
 
