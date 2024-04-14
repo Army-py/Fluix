@@ -28,7 +28,8 @@ public final class Fluix extends Plugin {
 
     @Override
     public void onDisable() {
-        commandManager.unregisterCommands();
+        if (commandManager != null)
+            commandManager.unregisterCommands();
 
         getLogger().info("Fluix disabled");
     }
@@ -37,20 +38,12 @@ public final class Fluix extends Plugin {
         return plugin;
     }
 
-    public ConfigLoader getConfigLoader() {
-        return configLoader;
-    }
-
     public Config getConfig() {
         return config;
     }
 
     public Configuration getLanguageConfig() {
         return languageConfig;
-    }
-
-    public CommandManager getCommandManager() {
-        return commandManager;
     }
 
 
@@ -72,7 +65,7 @@ public final class Fluix extends Plugin {
             return;
         }
 
-        if (isReload)
+        if (isReload && commandManager != null)
             commandManager.reloadCommands();
         else {
             commandManager = new CommandManager(this);
