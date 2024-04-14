@@ -13,7 +13,7 @@ A simple BungeeCord plugin that lets you create as many private chats as you lik
 ```yaml
 
 # Default available language :
-# en_us - English (United Kingdom)
+# en_us - English (United States)
 # fr_fr - French (France)
 language: "en_us"
 
