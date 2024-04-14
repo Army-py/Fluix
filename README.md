@@ -49,7 +49,7 @@ chat:
 
 ## Language
 
-### en_uk.yml
+### en_us.yml
 ```yaml
 
 # List of available placeholders
