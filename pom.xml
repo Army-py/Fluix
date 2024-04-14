@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>fr.army</groupId>
-    <artifactId>Fluix</artifactId>
+    <artifactId>fluix</artifactId>
     <version>1.0</version>
     <packaging>jar</packaging>
 
@@ -17,7 +17,8 @@
     </properties>
 
     <build>
-        <defaultGoal>clean package</defaultGoal>
+        <finalName>${project.name}-${project.version}</finalName>
+        <defaultGoal>clean install</defaultGoal>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
