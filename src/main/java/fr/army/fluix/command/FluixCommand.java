@@ -1,5 +1,6 @@
 package fr.army.fluix.command;
 
+import fr.army.fluix.Fluix;
 import fr.army.fluix.chat.FluixChat;
 import fr.army.fluix.config.message.Messages;
 import fr.army.fluix.config.message.Placeholders;
@@ -54,7 +55,7 @@ public class FluixCommand extends Command {
                 Placeholders.MESSAGE, message.toString()
         );
 
-        for (ProxiedPlayer proxiedPlayer : player.getServer().getInfo().getPlayers()) {
+        for (ProxiedPlayer proxiedPlayer : Fluix.getPlugin().getProxy().getPlayers()) {
             if (proxiedPlayer.hasPermission(chat.getReadPermission())) {
                 proxiedPlayer.sendMessage(new TextComponent(PlaceholdersUtils.replace(chat.getFormat(), replacements)));
             }
